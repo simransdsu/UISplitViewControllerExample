@@ -17,10 +17,10 @@ class DetailViewController: UIViewController {
         return view
     }()
     
-    override func loadView() {
-        self.view = UIView()
-        self.view.backgroundColor = .white
-        self.setupSubviews()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        setupSubviews()
     }
     
     func showValue(_ value: String?) {
