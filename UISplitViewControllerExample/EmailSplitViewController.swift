@@ -29,9 +29,10 @@ class EmailSplitViewController: UISplitViewController, MasterViewControllerDeleg
     }
     
     private func loadViewControllers() {
-        self.primaryViewController = MasterViewController()
-        self.primaryViewController.delegate = self
+        primaryViewController = MasterViewController()
+        primaryViewController.delegate = self
         let navController = UINavigationController(rootViewController: self.primaryViewController)
+        
         let detail = DetailViewController()
         detail.showValue(values.first!)
         self.viewControllers = [navController, detail]

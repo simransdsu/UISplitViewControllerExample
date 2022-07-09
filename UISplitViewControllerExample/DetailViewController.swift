@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
     
     func showValue(_ value: String?) {
         self.label.text = value
+        title = value
     }
     
     private func setupSubviews() {
