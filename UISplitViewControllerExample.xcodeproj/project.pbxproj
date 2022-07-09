@@ -13,6 +13,7 @@
 		494CD3BB2878D015003FACBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494CD3B92878D015003FACBF /* LaunchScreen.storyboard */; };
 		494CD3C32878D0CB003FACBF /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494CD3C22878D0CA003FACBF /* MasterViewController.swift */; };
 		494CD3C52878D0D5003FACBF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494CD3C42878D0D5003FACBF /* DetailViewController.swift */; };
+		494CD3C72878D5BE003FACBF /* EmailSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494CD3C62878D5BE003FACBF /* EmailSplitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		494CD3BC2878D015003FACBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		494CD3C22878D0CA003FACBF /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		494CD3C42878D0D5003FACBF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		494CD3C62878D5BE003FACBF /* EmailSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				494CD3B72878D015003FACBF /* Assets.xcassets */,
 				494CD3B92878D015003FACBF /* LaunchScreen.storyboard */,
 				494CD3BC2878D015003FACBF /* Info.plist */,
+				494CD3C62878D5BE003FACBF /* EmailSplitViewController.swift */,
 			);
 			path = UISplitViewControllerExample;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				494CD3AF2878D013003FACBF /* AppDelegate.swift in Sources */,
+				494CD3C72878D5BE003FACBF /* EmailSplitViewController.swift in Sources */,
 				494CD3B12878D013003FACBF /* SceneDelegate.swift in Sources */,
 				494CD3C32878D0CB003FACBF /* MasterViewController.swift in Sources */,
 				494CD3C52878D0D5003FACBF /* DetailViewController.swift in Sources */,

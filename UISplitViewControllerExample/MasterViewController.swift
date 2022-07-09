@@ -7,19 +7,33 @@
 
 import UIKit
 
-class MasterViewController: UIViewController {
+protocol MasterViewControllerDelegate: AnyObject {
+    func didSelectValue(_ value: String)
+}
 
-    private let label: UILabel = {
-        let view = UILabel()
+class MasterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    var delegate: MasterViewControllerDelegate?
+    
+    private var values: [String] = []
+    
+    private let tableView: UITableView = {
+        let view = UITableView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.text = "Primary"
+        view.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return view
     }()
+    
+    func show(values: [String]) {
+        self.values = values
+        self.tableView.reloadData()
+    }
     
     override func loadView() {
         self.view = UIView()
         self.view.backgroundColor = .white
         self.setupSubviews()
+        title = "Emails"
     }
     
     private func setupSubviews() {
@@ -27,11 +41,34 @@ class MasterViewController: UIViewController {
     }
     
     private func setupLabel() {
-        self.view.addSubview(label)
+        self.view.addSubview(tableView)
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         NSLayoutConstraint.activate([
-            self.label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.label.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
     }
 
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let value = self.values[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        var content = cell.defaultContentConfiguration()
+        content.text = value
+        cell.contentConfiguration = content
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.values.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let value = self.values[indexPath.row]
+        self.delegate?.didSelectValue(value)
+    }
 }

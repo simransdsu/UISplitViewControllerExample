@@ -14,16 +14,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
         self.window = UIWindow(windowScene: windowScene)
-        
-        let splitVC = UISplitViewController()
-        let primaryViewController = MasterViewController()
-        let navigationController = UINavigationController(rootViewController: primaryViewController)
-        let secondaryViewController = DetailViewController()
-        splitVC.viewControllers = [navigationController, secondaryViewController]
+        let splitVC = EmailSplitViewController()
         splitVC.preferredDisplayMode = .oneBesideSecondary
-        
         self.window!.rootViewController = splitVC
         self.window!.makeKeyAndVisible()
     }
